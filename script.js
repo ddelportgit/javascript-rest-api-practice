@@ -69,6 +69,34 @@ async function updateUser() {
   }
 }
 
+async function patchUser() {
+  try {
+    const response = await fetch(
+      "https://json.placeholder.typicode.com/users/1",
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Alex Patched",
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to patch user");
+    }
+
+    const patchedUser = await response.json();
+
+    console.log(patchedUser);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 getUsers();
 createUser();
 updateUser();
+patchUser();
