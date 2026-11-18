@@ -72,7 +72,7 @@ async function updateUser() {
 async function patchUser() {
   try {
     const response = await fetch(
-      "https://json.placeholder.typicode.com/users/1",
+      "https://jsonplaceholder.typicode.com/users/1",
       {
         method: "PATCH",
         headers: {
@@ -96,7 +96,27 @@ async function patchUser() {
   }
 }
 
+async function deleteUser() {
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1",
+      {
+        method: "DELETE",
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to delete user");
+    }
+
+    console.log("User deleted successfully");
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 getUsers();
 createUser();
 updateUser();
 patchUser();
+deleteUser();
