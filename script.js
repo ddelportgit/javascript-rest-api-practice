@@ -8,7 +8,9 @@ async function getUsers() {
 
     const users = await response.json();
 
-    console.log(users);
+    users.forEach((user) => {
+      console.log(user.name);
+    });
   } catch (error) {
     console.log(error.message);
   }
