@@ -41,5 +41,34 @@ async function createUser() {
   }
 }
 
-createUser();
+async function updateUser() {
+  try {
+    const response = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: "Alex Updated",
+          email: "alexupdated@example.com",
+        }),
+      },
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to update user");
+    }
+
+    const updatedUser = await response.json();
+
+    console.log(updatedUser);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 getUsers();
+createUser();
+updateUser();
