@@ -26,3 +26,43 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
+
+#posts-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+
+#posts-container > div {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e4e4e7;
+}
+
+#posts-container h3 {
+  font-size: 18px;
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+#posts-container p {
+  color: #52525b;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  #posts-container {
+    grid-template-columns: 1fr;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
