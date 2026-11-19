@@ -204,7 +204,20 @@ async function getPosts(userId) {
 
     const posts = await response.json();
 
-    console.log(posts);
+    posts.forEach((post) => {
+      const postElement = document.createElement("div");
+
+      const title = document.createElement("h3");
+      title.textContent = post.title;
+
+      const body = document.createElement("p");
+      body.textContent = post.body;
+
+      postElement.appendChild(title);
+      postElement.appendChild(body);
+
+      postsContainer.appendChild(postElement);
+    });
   } catch (error) {
     statusElement.textContent = error.message;
   }
