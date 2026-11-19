@@ -188,6 +188,7 @@ async function getProtectedData() {
 async function getPosts(userId) {
   try {
     statusElement.textContent = "Loading posts...";
+    searchButton.disabled = true;
     postsContainer.innerHTML = "";
 
     const params = new URLSearchParams({
@@ -227,6 +228,8 @@ async function getPosts(userId) {
     });
   } catch (error) {
     statusElement.textContent = error.message;
+  } finally {
+    searchButton.disabled = false;
   }
 }
 
