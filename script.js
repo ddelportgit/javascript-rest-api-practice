@@ -185,6 +185,31 @@ async function getProtectedData() {
   }
 }
 
+async function getPosts(userId) {
+  try {
+    statusElement.textContent = "Loading posts...";
+    postsContainer.innerHTML = "";
+
+    const params = new URLSearchParams({
+      userId: userId,
+    });
+
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts?${params.toString()}`,
+    );
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch posts");
+    }
+
+    const posts = await response.json();
+
+    console.log(posts);
+  } catch (error) {
+    statusElement.textContent = error.message;
+  }
+}
+
 getUsers();
 createUser();
 updateUser();
