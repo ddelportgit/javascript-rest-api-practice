@@ -249,10 +249,10 @@ searchButton.addEventListener("click", () => {
   getPosts(userId);
 });
 
-getUsers();
-createUser();
-updateUser();
-patchUser();
-deleteUser();
-checkUser();
-getUserPosts(5, 3);
+// getUsers();
+// createUser();
+// updateUser();
+// patchUser();
+// deleteUser();
+// checkUser();
+// getUserPosts(5, 3);
