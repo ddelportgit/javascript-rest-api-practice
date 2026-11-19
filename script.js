@@ -135,14 +135,14 @@ async function checkUser() {
   }
 }
 
-async function getUserPosts(userId) {
+async function getUserPosts(userId, limit) {
   try {
     const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?userId=${userId}`,
+      `https://jsonplaceholder.typicode.com/posts?userId=${userId}&_limit=${limit}`,
     );
 
     if (!response.ok) {
-      throw new Error("Failded to fetch posts");
+      throw new Error("Failed to fetch posts");
     }
 
     const posts = await response.json();
@@ -161,4 +161,4 @@ updateUser();
 patchUser();
 deleteUser();
 checkUser();
-getUserPosts(5);
+getUserPosts(5, 3);
