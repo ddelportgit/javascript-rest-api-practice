@@ -210,6 +210,12 @@ async function getPosts(userId) {
   }
 }
 
+searchButton.addEventListener("click", () => {
+  const userId = userInput.value;
+
+  getPosts(userId);
+});
+
 getUsers();
 createUser();
 updateUser();
