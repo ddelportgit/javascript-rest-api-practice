@@ -209,6 +209,8 @@ async function getPosts(userId) {
       return;
     }
 
+    statusElement.textContent = `${posts.length} posts found`;
+
     posts.forEach((post) => {
       const postElement = document.createElement("div");
 
@@ -223,8 +225,6 @@ async function getPosts(userId) {
 
       postsContainer.appendChild(postElement);
     });
-
-    statusElement.textContent = "Posts loaded successfully!";
   } catch (error) {
     statusElement.textContent = error.message;
   }
