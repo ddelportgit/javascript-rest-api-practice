@@ -137,8 +137,13 @@ async function checkUser() {
 
 async function getUserPosts(userId, limit) {
   try {
+    const params = new URLSearchParams({
+      userId: userId,
+      _limit: limit,
+    });
+
     const response = await fetch(
-      `https://jsonplaceholder.typicode.com/posts?userId=${userId}&_limit=${limit}`,
+      `https://jsonplaceholder.typicode.com/posts?${params.toString()}`,
     );
 
     if (!response.ok) {
