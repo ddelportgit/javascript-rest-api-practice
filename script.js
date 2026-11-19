@@ -204,6 +204,11 @@ async function getPosts(userId) {
 
     const posts = await response.json();
 
+    if (posts.length === 0) {
+      statusElement.textContent = "No posts found for this user.";
+      return;
+    }
+
     posts.forEach((post) => {
       const postElement = document.createElement("div");
 
