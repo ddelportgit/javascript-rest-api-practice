@@ -238,6 +238,11 @@ searchButton.addEventListener("click", () => {
     return;
   }
 
+  if (userId < 1 || userId > 10) {
+    statusElement.textContent = "Please enter a user ID between 1 and 10.";
+    return;
+  }
+
   getPosts(userId);
 });
 
