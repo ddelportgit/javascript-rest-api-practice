@@ -160,6 +160,26 @@ async function getUserPosts(userId, limit) {
   }
 }
 
+async function getProtectedData() {
+  try {
+    const response = await fetch("https://api.example.com/protected", {
+      headers: {
+        Authorization: "Bearer your-token",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch protected data");
+    }
+
+    const data = await response.json();
+
+    console.log(data);
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 getUsers();
 createUser();
 updateUser();
