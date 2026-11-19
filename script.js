@@ -218,6 +218,8 @@ async function getPosts(userId) {
 
       postsContainer.appendChild(postElement);
     });
+
+    statusElement.textContent = "Posts loaded successfully!";
   } catch (error) {
     statusElement.textContent = error.message;
   }
