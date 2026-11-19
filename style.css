@@ -52,6 +52,11 @@ button {
   line-height: 1.6;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 @media (max-width: 600px) {
   #posts-container {
     grid-template-columns: 1fr;
