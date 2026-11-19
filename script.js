@@ -135,9 +135,30 @@ async function checkUser() {
   }
 }
 
+async function getUserPosts(userId) {
+  try {
+    const response = await fetch(
+      `https://jsonplaceholder.typicode.com/posts?userId=${userId}`,
+    );
+
+    if (!response.ok) {
+      throw new Error("Failded to fetch posts");
+    }
+
+    const posts = await response.json();
+
+    posts.forEach((post) => {
+      console.log(post.title);
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 getUsers();
 createUser();
 updateUser();
 patchUser();
 deleteUser();
 checkUser();
+getUserPosts(5);
