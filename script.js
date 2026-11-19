@@ -1,3 +1,8 @@
+const userInput = document.querySelector("#user-id");
+const searchButton = document.querySelector("#search-button");
+const statusElement = document.querySelector("#status");
+const postsContainer = document.querySelector("#posts-container");
+
 async function getUsers() {
   try {
     const response = await fetch("https://jsonplaceholder.typicode.com/users");
