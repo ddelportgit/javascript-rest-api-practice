@@ -233,6 +233,11 @@ async function getPosts(userId) {
 searchButton.addEventListener("click", () => {
   const userId = userInput.value;
 
+  if (!userId) {
+    statusElement.textContent = "Please enter a user ID";
+    return;
+  }
+
   getPosts(userId);
 });
 
